@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meetings Room - Meetings</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+<body>
+    <div class="layout">
+        <div class="sidebar">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="meeting.html" class="active">Meetings</a></li>
+                <li><a href="rooms.html">Stanze</a></li>
+                <li><a href="index.html" id="logoutBtn">Logout</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="top-bar">
+                <h1>Meetings</h1>
+                <button id="addMeetingBtn" class="mb-20">Nuovo Meeting</button>
+            </div>
+
+            <div id="meetingsList" class="form-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Titolo</th>
+                            <th>Data</th>
+                            <th>Ora</th>
+                            <th>Stanza</th>
+                            <th>Tipologia</th>
+                            <th>Azioni</th>
+                        </tr>
+                    </thead>
+                    <tbody id="meetingsTableBody">
+                        <!-- Meetings will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Meeting Form Modal -->
+            <div id="meetingFormModal" class="modal" style="display: none;">
+                <div class="form-container">
+                    <h2 id="modalTitle">Nuovo Meeting</h2>
+                    <form id="meetingForm">
+                        <input type="hidden" id="meetingId">
+                        <div class="form-group">
+                            <label for="title">Titolo:</label>
+                            <input type="text" id="title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Data:</label>
+                            <input type="text" id="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="startTime">Ora inizio:</label>
+                            <select id="startTime" required>
+                                <!-- Times will be populated by JavaScript -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="endTime">Ora fine:</label>
+                            <select id="endTime" required>
+                                <!-- Times will be populated by JavaScript -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="type">Tipologia:</label>
+                            <select id="type" required>
+                                <option value="CLASSROOMTRAINING">Class Room type</option>
+                                <option value="ONLINETRAINING">Online training</option>
+                                <option value="CONFERENCECALL">Conference call</option>
+                                <option value="BUSINESS">Business</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="meetingRoom">Stanza:</label>
+                            <select id="meetingRoom" required></select>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="participantSearch">Cerca Partecipanti:</label>
+                            <input type="text" id="participantSearch" placeholder="Cerca per username...">
+                            <div id="participantsList" class="scrollable-list"></div>
+                        </div>
+                        <div class="form-group">
+                            <label>Utenti selezionati:</label>
+                            <div id="selectedParticipants" class="selected-list"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Descrizione:</label>
+                            <textarea id="description" rows="5" cols="33"></textarea>
+                        </div>
+                        <button type="submit">Salva</button>
+                        <button type="button" id="cancelBtn">Cancella</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/api.js"></script>
+    <script src="js/meeting.js"></script>
+</body>
+</html>

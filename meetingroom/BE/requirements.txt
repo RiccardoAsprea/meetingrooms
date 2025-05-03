@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pydantic
+sqlalchemy
+asyncmy
+httpx
+email-validator
+python-dotenv
+python-multipart
+greenlet>=2.0

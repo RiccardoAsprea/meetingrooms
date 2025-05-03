@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meetings Room - Rooms</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="layout">
+        <div class="sidebar">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="meeting.html">Meetings</a></li>
+                <li><a href="rooms.html" class="active">Stanze</a></li>
+                <li><a href="index.html" id="logoutBtn">Logout</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="top-bar">
+                <h1>Stanze</h1>
+                <button id="addRoomBtn" class="mb-20">Nuova Stanza</button>
+            </div>
+
+            <div id="roomsList" class="form-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome stanza</th>
+                            <th>Posti disponibili</th>
+                            <th>Azioni</th>
+                        </tr>
+                    </thead>
+                    <tbody id="roomsTableBody">
+                        <!-- Rooms will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Room Form Modal -->
+            <div id="roomFormModal" class="modal" style="display: none;">
+                <div class="form-container">
+                    <h2 id="modalTitle">Nuova Stanza</h2>
+                    <form id="roomForm">
+                        <input type="hidden" id="roomId">
+                        <div class="form-group">
+                            <label for="roomName">Nome stanza:</label>
+                            <input type="text" id="roomName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="seatingCapacity">Posti disponibili:</label>
+                            <input type="number" id="seatingCapacity" min="1" required>
+                        </div>
+                        <button type="submit">Salva</button>
+                        <button type="button" id="cancelBtn">Cancella</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/api.js"></script>
+    <script src="js/rooms.js"></script>
+</body>
+</html>
